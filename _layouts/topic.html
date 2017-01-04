@@ -1,0 +1,100 @@
+---
+layout: default
+---
+
+<div class="container">
+  <div class="content col col-12 md-col-8">
+    <article class="post" id="{{ post.slug }}">
+      <div class="post-metadata">
+        <span class="post-metadata-item post-author">
+          {% for contributor in page.contributors %}
+            {{ contributor }}
+          {% endfor %}
+        </span>
+      </div>
+
+      <h1 class="post-title">
+        {{ page.title }}
+      </h1>
+
+      <div class="post-content">
+        {{ content }}
+      </div>
+    </article>
+
+    <div class="list posts">
+      {% if site.guides.size %}
+      <h2>Guides about {{ page.title }}</h2>
+
+      {% for post in site.guides %}
+      {% for topic in post.topics %}
+      {% if page.slug == topic %}
+      <div class="post mb4 ml2 pl2 bl bw2 b--light-gray">
+        <div class=" f-12 tracked ttu lh-copy">
+          <span class="post-metadata-item post-date"><span class="light-silver">Last updated</span> {{ post.updated }}</span>
+          <span class="post-metadata-separator">•</span>
+          <span class="post-metadata-item post-author">
+            {% for contributor in post.contributors %}
+              {{ contributor }}
+            {% endfor %}
+          </span>
+        </div>
+        <h2 class="f4 mv1">
+          <a href="{{ post.url }}" class="link gray hover-black">
+            {{ post.title }}
+          </a>
+        </h2>
+        <div class="post-content">
+          {% if post.description %}
+            {{ post.description }}
+          {% else %}
+            {{ post.excerpt | strip_html | truncate: 250 }}
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+      {% endif %}
+
+      
+      {% if site.posts.size > 0 %}
+      <h2>Posts about {{ page.title }}</h2>
+      {% for post in site.posts %}
+      {% for topic in post.topics %}
+      {% if page.slug == topic %}
+      <div class="post mb4 ml2 pl2 bl bw2 b--light-gray">
+        <div class=" f-12 tracked ttu lh-copy">
+          <span class="post-metadata-item post-date"><span class="light-silver">Last updated</span> {{ post.updated }}</span>
+          <span class="post-metadata-separator">•</span>
+          <span class="post-metadata-item post-author">
+            {% for contributor in post.contributors %}
+              {{ contributor }}
+            {% endfor %}
+          </span>
+        </div>
+        <h2 class="f4 mv1">
+          <a href="{{ post.url }}" class="link gray hover-black">
+            {{ post.title }}
+          </a>
+        </h2>
+        <div class="post-content">
+          {% if post.description %}
+            {{ post.description }}
+          {% else %}
+            {{ post.excerpt | strip_html | truncate: 250 }}
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+  <hr>
+  <h3 class="mt5">Never miss a thing.</h3>
+  <p>Find out first any time we publish new guides & posts.</p>
+  {% include newsletter.html %}
+</div>

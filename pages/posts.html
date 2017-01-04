@@ -1,0 +1,27 @@
+---
+layout: page
+title: Posts
+permalink: /posts/
+---
+
+<div class="posts">
+  {% for post in site.posts %}
+  <div class="post mb4 ml2 pl2 bl bw2 b--light-gray">
+    <div class=" f-12 tracked ttu lh-copy">
+      <span class="post-metadata-item post-date"><span class="light-silver">Last updated</span> {{ post.updated }}</span>
+    </div>
+    <h2 class="f3 mv1">
+      <a href="{{ post.url }}" class="link gray hover-black">
+        {{ post.title }}
+      </a>
+    </h2>
+    <div class="post-content">
+      {% if post.description %}
+        {{ post.description }}
+      {% else %}
+        {{ post.excerpt | strip_html | truncate: 250 }}
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>

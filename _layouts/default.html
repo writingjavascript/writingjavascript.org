@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>
+    {% if page.title %}
+    {{ page.title }} | {{ site.title }}
+    {% elsif post.title %}
+    {{ post.title }} | {{ site.title }}
+    {% else %}
+    {{ site.title }} | {{ site.description }}
+    {% endif %}
+  </title>
+  <meta name="description" content="{{ page.description or post.description or site.description }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Upright" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.6.1/css/tachyons.min.css"/>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/styles.css" />
+</head>
+<body>
+  {% include header.html %}
+  {{content}}
+  {% include share.html %}
+  {% include footer.html %}
+
+  <div></div>
+  {% include analytics.html %}
+</body>
+</html>

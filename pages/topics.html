@@ -1,0 +1,24 @@
+---
+layout: page
+title: Topics
+permalink: /topics/
+---
+
+<div class="posts">
+  {% for topic in site.topics %}
+  <div class="post">
+    <h2 class="f4 mt4 mb1">
+      <a href="{{ topic.url }}" class="link gray hover-black">
+        {{ topic.title }}
+      </a>
+    </h2>
+    <div class="post-content">
+      {% if topic.description %}
+        {{ topic.description }}
+      {% else %}
+        {{ topic.excerpt | strip_html | truncate: 250 }}
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>

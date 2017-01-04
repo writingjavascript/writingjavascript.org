@@ -1,0 +1,32 @@
+#! /usr/bin/env node
+
+var fs = require('fs')
+var path = require('path')
+
+var title = process.argv[2]
+var slug = title.toLowerCase().replace(/ /g, '-').replace(/\./g, '-')
+
+var dt = new Date()
+var year = dt.getFullYear()
+var month = ('0' + (dt.getMonth()+1)).slice(-2)
+var monthName = dt.toLocaleString('en-us', { month: "long" })
+var day = dt.getDate()
+var date = year + '-' + month + '-' + day
+
+var text = `---
+layout: post
+title: "${title}"
+published: true
+contributors: []
+topics: []
+description: ""
+updated: "${monthName} ${day}, ${year}"
+---
+`
+
+var filename = date + '-' + slug + '.md'
+var filepath = path.join(__dirname, '..', '_posts', filename)
+
+fs.writeFile(filepath, text, function (err, res) {
+  if (err) return console.log('something went wrong!\n', err)
+})

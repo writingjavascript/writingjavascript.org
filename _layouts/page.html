@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div class="container">
+  <div class="page">
+    <div class="post-metadata">
+      <span class="post-metadata-item post-author">
+        {% for contributor in page.contributors %}
+          {{ contributor }}
+        {% endfor %}
+      </span>
+    </div>
+
+    {% if page.title %}
+    <h1 class="post-title mv3">{{ page.title }}</h1>
+    {% endif %}
+
+    <article class="post-content">
+    {{ content }}
+    </article>
+  </div>
+
+  <hr>
+  <h3 class="mt5">Never miss a thing.</h3>
+  <p>Find out first any time we publish new guides & posts.</p>
+
+  {% include newsletter.html %}
+</div>

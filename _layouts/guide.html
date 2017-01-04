@@ -1,0 +1,35 @@
+---
+layout: default
+---
+<div class="container">
+  <div class="content col col-12 md-col-8">
+    <div class="page">
+      {% if page.title %}
+      <h1 class="post-title mv3">{{ page.title }}</h1>
+      {% endif %}
+
+      <div class="mt0 f-12 tracked ttu lh-copy">
+        <span class="post-metadata-item post-date"><span class="light-silver">Last updated</span> {{ page.updated }}</span>
+        <span class="post-metadata-separator">•</span>
+        <span class="post-metadata-item post-author">
+          {% for contributor in page.contributors %}
+            {{ contributor }}
+          {% endfor %}
+        </span>
+        <ul class="list mt2 mb0 mh0 dib pa0">
+          {% for topic in page.topics %}
+            <li class="mr1 mb2 dib">
+              <a href="{{ site.baseurl }}/{{ topic }}" class="dark-gray dib ph2 pv1 bg-near-white hover-bg-gray br2 hover-white">
+                #{{ topic }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <article class="post-content">
+      {{ content }}
+      </article>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+---
+layout: default
+---
+
+<div class="container">
+  <div class="mb6">
+    <p class="fw9 f4 f-40-ns lh-title mt0">Writing JavaScript is a publication focused on the craft of JavaScript & Node.js.</p>
+
+    <h2 class="sub-headline mt5 mb0">Newsletter</h2>
+    <p>A weekly newsletter focused on exploring & advancing the craft of JavaScript, Node, & related technologies. Published on Tuesdays.</p>
+
+    {% include newsletter.html %}
+
+    <h2 class="sub-headline mt5 mb0">Guides</h2>
+    <p>In-depth guides to using JavaScript, Node, and related tools.</p>
+    {% for post in site.guides limit:3 %}
+    <div class="post mb4 ml2 pl2 bl bw2 b--light-gray">
+      <div class=" f-12 tracked ttu lh-copy">
+        <span class="post-metadata-item post-date"><span class="light-silver">Last updated</span> {{ post.updated }}</span>
+        <span class="post-metadata-separator">•</span>
+        <span class="post-metadata-item post-author">
+          {% for contributor in post.contributors %}
+            {{ contributor }}
+          {% endfor %}
+        </span>
+      </div>
+      <h2 class="f4 mv1">
+        <a href="{{ post.url }}" class="link gray hover-black">
+          {{ post.title }}
+        </a>
+      </h2>
+      <div class="post-content">
+        {% if post.description %}
+          {{ post.description }}
+        {% else %}
+          {{ post.excerpt | strip_html | truncate: 250 }}
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+    
+    {% if site.guides.size > 3 %}
+    <a href="/guides" class="link f-12 bg-blue near-white pv1 ph2 br2 dib v-mid hover-white hover-bg-dark-blue">Read all guides</a>
+    {% endif %}
+
+
+
+    <h2 class="sub-headline mt5 mb0">Posts</h2>
+    <p>Recent posts about JavaScript, Node, and related tools.</p>
+    {% for post in site.posts limit:3 %}
+    <div class="post mb4 ml2 pl2 bl bw2 b--light-gray">
+      <div class=" f-12 tracked ttu lh-copy">
+        <span class="post-metadata-item post-date"><span class="light-silver">Last updated</span> {{ post.updated }}</span>
+        <span class="post-metadata-separator">•</span>
+        <span class="post-metadata-item post-author">
+          {% for contributor in post.contributors %}
+            {{ contributor }}
+          {% endfor %}
+        </span>
+      </div>
+      <h2 class="f4 mv1">
+        <a href="{{ post.url }}" class="link gray hover-black">
+          {{ post.title }}
+        </a>
+      </h2>
+      <div class="post-content">
+        {% if post.description %}
+          {{ post.description }}
+        {% else %}
+          {{ post.excerpt | strip_html | truncate: 250 }}
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+
+    {% if site.posts.size > 3 %}
+    <a href="/posts" class="link f-12 bg-blue near-white pv1 ph2 br2 dib v-mid hover-white hover-bg-dark-blue">Read all posts</a>
+    {% endif %}
+
+    <h2 class="sub-headline mt5 mb0">Conduct</h2>
+    <p>It is important that this project contributes to a friendly, safe, and welcoming environment for all. Participating in any of our projects or communication tools requires adhering to our <a href="/conduct">code of conduct</a>.</p> 
+
+    <h2 class="sub-headline mt5 mb0">Contributing</h2>
+    <p>Contributions are welcome! Please read the <a href="/contributing">contributing guidelines</a> first.</p>
+  </div>
+</div>

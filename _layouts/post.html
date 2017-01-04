@@ -1,0 +1,52 @@
+---
+layout: default
+---
+
+<div class="container">
+  <div class="content col col-12 md-col-8">
+    <article class="post" id="{{ post.slug }}">
+      <h1 class="post-title mv3">{{ page.title }}</h1>
+
+      <div class="mt0 f-12 tracked ttu lh-copy">
+        <span class="post-metadata-item post-date"><span class="light-silver">Last updated</span> {{ page.updated }}</span>
+        <span class="post-metadata-separator">•</span>
+        <span class="post-metadata-item post-author">
+          {% for contributor in page.contributors %}
+            {{ contributor }}
+          {% endfor %}
+        </span>
+        <ul class="list mt2 mb0 mh0 dib pa0">
+          {% for topic in page.topics %}
+            <li class="mr1 mb2 dib">
+              <a href="{{ site.baseurl }}/{{ topic }}" class=" link gray dib ph2 pv1 bg-near-white hover-bg-light-gray br2 hover-black">
+                #{{ topic }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="post-content mb5">
+        {{ content }}
+      </div>
+
+      <h3 class="by mt0 mb3">Share this post:</h3>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="WritingJS">Tweet</a>
+      <script>
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
+
+      <div class="post-contributors mv4">
+        <h3 class="by mv0">Contributed by:</h3>
+        {% for contributor in page.contributors %}
+          {% include contributor.html contributor=contributor %}
+        {% endfor %}
+      </div>
+    </article>
+  </div>
+
+  <hr>
+  <h3 class="mt5">Never miss a thing.</h3>
+  <p>Find out first any time we publish new posts.</p>
+  {% include newsletter.html %}
+</div>

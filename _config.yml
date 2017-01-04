@@ -1,0 +1,49 @@
+title: Writing JavaScript
+description: The craft of writing JavaScript.
+permalink: /posts/:title
+baseurl: ''
+exclude: [node_modules, tmp, bin, README.md]
+markdown: kramdown
+highlighter: rouge
+
+collections:
+  contributors:
+    output: true
+    permalink: /:path/
+  topics:
+    output: true
+    permalink: /:path/
+  guides:
+    output: true
+    permalink: /:path/
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "contributors"
+    values:
+      layout: "contributor"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ""
+      type: "topics"
+    values:
+      layout: "topic"
+  -
+    scope:
+      path: ""
+      type: "guides"
+    values:
+      layout: "guide"

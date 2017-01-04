@@ -1,0 +1,14 @@
+{% for contributor in site.contributors %}
+  {% if contributor.slug == include.contributor %}
+    <div class="contributor ml3 pl3 bl bw3  b--light-gray">
+      <!-- <div class="contributor-image-wrapper">
+        <img src="{{ site.baseurl }}/assets/{{ contributor.image }}" class="contributor-image">
+      </div> -->
+      <h2 class="contributor-name mt4 mb1">{{ contributor.title }}</h2>
+      <p class="contributor-bio mv1">{{ contributor.content }}</p>
+      <a class="link f-12 br2 dib mr1 pv1 ph2 bg-blue near-white hover-bg-dark-blue" href="http://{{contributor.website}}">website</a>
+      <a class="link f-12 br2 dib mr1 pv1 ph2 bg-blue near-white hover-bg-dark-blue" href="https://twitter.com/{{contributor.twitter}}">twitter</a>
+      <a class="link f-12 br2 dib mr1 pv1 ph2 bg-blue near-white hover-bg-dark-blue" href="https://github.com/{{contributor.github}}">github</a>
+    </div>
+  {% endif %}
+{% endfor %}

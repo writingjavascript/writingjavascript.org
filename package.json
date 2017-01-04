@@ -1,0 +1,26 @@
+{
+  "name": "writingjavascript.org",
+  "version": "1.0.0",
+  "description": "The craft of writing JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "jekyll build && staticland _site/ writingjavascript.org",
+    "start": "jekyll serve -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/writingjavascript/writingjavascript.org.git"
+  },
+  "contributor": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/writingjavascript/writingjavascript.org/issues"
+  },
+  "homepage": "https://github.com/writingjavascript/writingjavascript.org#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "browserify": "^13.1.1",
+    "budo": "^9.2.1",
+    "staticland": "^3.0.9"
+  }
+}
