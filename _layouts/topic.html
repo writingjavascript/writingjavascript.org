@@ -93,8 +93,8 @@ layout: default
     </div>
   </div>
 
+  {% unless page.support == false %}
   <hr>
-  <h3 class="mt5">Never miss a thing.</h3>
-  <p>Find out first any time we publish new guides & posts.</p>
-  {% include newsletter.html %}
+  {% include support.html %}
+  {% endunless %}
 </div>

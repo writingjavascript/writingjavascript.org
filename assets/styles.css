@@ -50,6 +50,11 @@ blockquote {
   color: #888;
 }
 
+.m-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* FONT SIZES */
 
 .f-12 {
@@ -342,6 +347,10 @@ select {
     max-width: 600px;
     margin-left: 200px;
   }
+}
+
+.highlight {
+  line-height: 1.5;
 }
 
 .highlight .c { color: #8e908c } /* Comment */

@@ -6,6 +6,9 @@ exclude: [node_modules, tmp, bin, README.md]
 markdown: kramdown
 highlighter: rouge
 
+kramdown:
+  syntax_highlighter: rouge
+
 collections:
   contributors:
     output: true
