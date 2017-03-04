@@ -14,4 +14,8 @@ updated: "January 8, 2017"
 
 ## Dependencies of minidocs
 
+## Modules that work well with minidocs
+
 ## Similar projects
+
+- [docpage](https://github.com/sethvincent/docpage)

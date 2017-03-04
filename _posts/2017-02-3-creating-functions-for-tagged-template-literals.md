@@ -76,7 +76,7 @@ Let's start with a minimal example that replicates the behavior of a template li
 ```js
 function createString () {
   var strings = arguments[0]
-  var values = arguments.splice(0, 1)
+  var values = Array.prototype.slice.call(arguments, 1)
 
   return strings.reduce(function (result, string, i) {
     return result + string + (values[i] ? values[i] : '')
